@@ -25,6 +25,11 @@ except ImportError:
 
 class GitHubManager(QMainWindow):
     def __init__(self):
+        """
+        Initializes the main window.
+
+        Sets the main window's UI, and loads the login widget.
+        """
         super(GitHubManager, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -43,7 +48,14 @@ class GitHubManager(QMainWindow):
     def start(self, user):
         """
         Loads the user's information and repositories.
-        :param user:
+
+        When a user logs in with their GitHub token, the main program is started and all the necessary information
+        is loaded.
+
+        Parameters
+        ----------
+        user : modules.user.User
+            The user class containing all the user's information.
         """
         self.user = user
 
@@ -59,6 +71,8 @@ class GitHubManager(QMainWindow):
     def config(self):
         """
         Configures the main window.
+
+        Sets the window's icon, widget connections, and the timer.
         """
         self.setWindowIcon(QIcon(LOGO))
 
@@ -193,7 +207,13 @@ class GitHubManager(QMainWindow):
     def closeEvent(self, event):
         """
         Closes the application.
-        :param event: Event
+
+        Closes the application when the user clicks the X button or presses the Exit action.
+
+        Parameters
+        ----------
+        event : QCloseEvent
+            The close event.
         """
         quit()
 

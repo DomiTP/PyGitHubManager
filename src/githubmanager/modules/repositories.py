@@ -16,10 +16,17 @@ class WorkerSignals(QObject):
 
 
 class Worker(QRunnable):
-    def __init__(self, user, ui):
+    def __init__(self, user):
+        """
+        Worker to get all repositories of a user from Github API and emit them to the UI asynchronously
+
+        Parameters
+        ----------
+        user : User
+            User class instance
+        """
         super().__init__()
         self.user = user
-        self.ui = ui
         self.signals = WorkerSignals()
 
     @Slot()
@@ -31,13 +38,21 @@ class Worker(QRunnable):
 
 class Repositories(QWidget):
     def __init__(self, user):
+        """
+        Class to show the repositories of a user
+
+        Parameters
+        ----------
+        user : User
+            User class instance
+        """
         super(Repositories, self).__init__()
         self.ui = Ui_Repositories()
         self.ui.setupUi(self)
 
         self.user = user
         self.open_repo = None
-        self.worker = Worker(self.user, self.ui)
+        self.worker = Worker(self.user)
 
         self.threadpool = QThreadPool()
 
@@ -56,6 +71,14 @@ class Repositories(QWidget):
 
     @Slot(GithubRepository)
     def add_repo(self, repo):
+        """
+        Adds a repository to the listWidget
+
+        Parameters
+        ----------
+        repo : GithubRepository
+            Repository class instance
+        """
         item = QListWidgetItem()
         item.setToolTip(repo.name)
         widget = RepositoryTemplate(repo, self.user.get_data())
@@ -64,6 +87,9 @@ class Repositories(QWidget):
         self.ui.listWidget.setItemWidget(item, widget)
 
     def finished(self):
+        """
+        Called when the asynchronous loading of the repositories is finished
+        """
         self.ui.lineEdit.setEnabled(True)
         self.ui.newButton.setEnabled(True)
 
@@ -96,6 +122,11 @@ class Repositories(QWidget):
     def on_text_changed(self, text):
         """
         Filters the repositories with the text entered the lineEdit
+
+        Parameters
+        ----------
+        text : str
+            Text entered in the lineEdit
         """
         for row in range(self.ui.listWidget.count()):
             item = self.ui.listWidget.item(row)

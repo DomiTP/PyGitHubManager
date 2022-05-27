@@ -8,6 +8,19 @@ ICONS_FOLDER = os.path.join(RESOURCES_FOLDER, 'icons')
 
 
 def get_icon(icon_name):
+    """
+    Returns the path of an icon
+
+    Parameters
+    ----------
+    icon_name : str
+        Name of the icon
+
+    Returns
+    -------
+    str
+        Path of the icon
+    """
     icon = os.path.join(ICONS_FOLDER, icon_name)
     if not file_exists(icon):
         icon = False
@@ -17,8 +30,12 @@ def get_icon(icon_name):
 
 def file_exists(file):
     """
-    Comprueba si un fichero existe
-    :return: True si existe, False si no existe
+    Checks if a file exists
+
+    Returns
+    -------
+    bool
+        True if the file exists, False otherwise
     """
     return os.path.exists(file)
 

@@ -18,7 +18,13 @@ class Login(QMainWindow):
     def __init__(self, main_window):
         """
         Constructor of the login window class
-        :param main_window:  main window of the application
+
+        Configure the interface of the login window.
+
+        Parameters
+        ----------
+        main_window:
+            Main window of the application
         """
         super(Login, self).__init__()
 
@@ -85,7 +91,11 @@ class Login(QMainWindow):
     def check_text(self, text):
         """
         Check if the text is correct and enable the button
-        :param text:  text to check
+
+        Parameters
+        ----------
+        text: str
+            Text to check
         """
         if re.search(r"^[a-zA-Z]+_.*$", text):
             self.ui.signInButton.setEnabled(True)
@@ -96,8 +106,7 @@ class Login(QMainWindow):
 
     def login(self):
         """
-        Login with the token
-        :return:
+        Check the token and create the Github object and the user object
         """
         try:
             github = Github(self.ui.tokenLineEdit.text())
@@ -128,6 +137,10 @@ class Login(QMainWindow):
     def closeEvent(self, event):
         """
         Close event
-        :param event:
+
+        Parameters
+        ----------
+        event: QCloseEvent
+            Close event
         """
         quit()

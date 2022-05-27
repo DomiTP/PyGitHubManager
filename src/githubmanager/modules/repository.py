@@ -24,12 +24,23 @@ class WorkerSignals(QObject):
 
 class Worker(QRunnable):
     def __init__(self, content):
+        """
+        Worker to get the content of a repository
+
+        Parameters
+        ----------
+        content
+            The content of the repository
+        """
         super(Worker, self).__init__()
         self.content = content
         self.signals = WorkerSignals()
 
     @Slot(str)
     def run(self):
+        """
+        Run the worker to get the content of a repository and emit the signals to update the UI
+        """
         try:
             while self.content:
                 file_content = self.content.pop(0)
@@ -48,6 +59,16 @@ class Worker(QRunnable):
 
 class Repository(QWidget):
     def __init__(self, repo, user):
+        """
+        Initialize the repository widget
+
+        Parameters
+        ----------
+        repo : github.Repository.Repository
+            The repository object
+        user : User
+            The user object
+        """
         super(Repository, self).__init__()
         self.ui = Ui_repository()
         self.ui.setupUi(self)
@@ -72,6 +93,11 @@ class Repository(QWidget):
     def load_data(self):
         """
         Load repo data to ui widgets
+
+        Raises
+        ------
+        Exception
+            If there is no license
         """
         self.ui.repoLabel.setText(self.repository.full_name)
         self.watch()
@@ -135,6 +161,9 @@ class Repository(QWidget):
             self.ui.commitsWidget.setText("0 commits")
 
     def load_issues(self):
+        """
+        Load issues to ui widgets
+        """
         issues = self.repository.get_issues()
         for issue in issues:
             item = QListWidgetItem()
@@ -146,12 +175,24 @@ class Repository(QWidget):
     def branch_changed(self, branch_name):
         """
         When branch changed, update files list
-        :param branch_name: branch name
+
+        Parameters
+        ----------
+        branch_name : str
+            Branch name
         """
         content = self.repository.get_contents("/", ref=branch_name)
         self.load_content(content)
 
     def load_content(self, content):
+        """
+        Call the function to load content to ui widgets asynchronously and disables some UI elements
+
+        Parameters
+        ----------
+        content
+            Content to load
+        """
         self.ui.branchComboBox.setDisabled(True)
         self.ui.configButton.setDisabled(True)
         self.ui.filesListWidget.clear()
@@ -175,6 +216,27 @@ class Repository(QWidget):
             message('error', e.data['message'])
 
     def add_file(self, file_name, is_directory, content_type, content_size, url):
+        """
+        Add file to ui widgets
+
+        Parameters
+        ----------
+        file_name : str
+            File name
+        is_directory : bool
+            True if file is directory else False
+        content_type : str
+            File content type (e.g. dir, file, symlink)
+        content_size : int
+            File content size
+        url : str
+            GitHub file url
+
+        Raises
+        ------
+        Exception
+            If there is an error loading file
+        """
         try:
             if is_directory:
                 path = self.paths[-1] + "/" + file_name
@@ -188,17 +250,23 @@ class Repository(QWidget):
             self.ui.filesListWidget.addItem(item)
             self.ui.filesListWidget.setItemWidget(item, widget)
         except Exception as e:
-            print(e)
             message('error', e)
 
     def load_finished(self):
+        """
+        When loading finished, enables some UI elements
+        """
         self.ui.branchComboBox.setDisabled(False)
         self.ui.configButton.setDisabled(False)
 
     def on_click(self, item):
         """
-        When item clicked, update content
-        :param item: RepositoryListWidgetItem
+        When item clicked, update content if it is directory or open file if it is file
+
+        Parameters
+        ----------
+        item : RepositoryListWidgetItem
+            Item clicked
         """
         if item.isDirectory:
             if item.name == "..":
@@ -211,6 +279,9 @@ class Repository(QWidget):
             QDesktopServices.openUrl(QUrl(item.url))
 
     def edit_repo_window(self):
+        """
+        Open edit repository window
+        """
         self.edit_repo = EditRepository(self.repository, self)
         self.edit_repo.show()
 

@@ -9,6 +9,16 @@ from utils import get_repo_info
 
 class LocalRepositoryTemplate(QWidget):
     def __init__(self, repo_path, user):
+        """
+        Template for a local repository
+
+        Parameters
+        ----------
+        repo_path : str
+            Path to the repository
+        user : User
+            User instance
+        """
         super(LocalRepositoryTemplate, self).__init__()
         self.ui = Ui_LocalRepositoryTemplate()
         self.ui.setupUi(self)
@@ -23,6 +33,9 @@ class LocalRepositoryTemplate(QWidget):
         self.fill()
 
     def fill(self):
+        """
+        Fill the template with the information of the repository
+        """
         self.repo_user, self.repo_name, self.full_repo_name = get_repo_info(self.repo_path)
         self.ui.repoNameLabel.setText(self.repo_name)
         self.ui.pathLineEdit.setText(self.repo_path)
@@ -37,4 +50,7 @@ class LocalRepositoryTemplate(QWidget):
             self.ui.githubButton.setToolTip('Repository not found in GitHub')
 
     def config_ui(self):
+        """
+        Configure the UI
+        """
         self.ui.pathLineEdit.setDisabled(True)

@@ -7,6 +7,18 @@ from utils import format_file_size
 
 class FileTemplate(QWidget):
     def __init__(self, name, content_type, size):
+        """
+        Initialize the widget
+
+        Parameters
+        ----------
+        name : str
+            The name of the file
+        content_type : str
+            The content type of the file
+        size : int
+            The size of the file
+        """
         super(FileTemplate, self).__init__()
         self.ui = Ui_FileTemplate()
         self.ui.setupUi(self)

@@ -8,7 +8,16 @@ from PySide6.QtWidgets import QMessageBox
 def check_save_path(save_path):
     """
     Check if the save path is correct, and you have the necessary permissions
-    :return: True if the path is correct, and you have the necessary permissions or False if not and the reason
+
+    Parameters
+    ----------
+    save_path : str
+        Path to save the repository
+
+    Returns
+    -------
+    bool
+        True if the path is correct, False if not
     """
 
     check = False
@@ -29,8 +38,16 @@ def check_save_path(save_path):
 def check_if_repo_exists(repo_path):
     """
     Check if the repository exists
-    :param repo_path: Path to the repository
-    :return: True if the repository exists, False if not
+
+    Parameters
+    ----------
+    repo_path : str
+        Path to the repository
+
+    Returns
+    -------
+    bool
+        True if the repository exists, False if not
     """
     response = False
     if os.path.exists(repo_path):
@@ -41,10 +58,21 @@ def check_if_repo_exists(repo_path):
 def clone(clone_url, clone_path, user):
     """
     Clone the repository to the specified path
-    :param clone_url:  URL of the repository
-    :param clone_path:  Path to save the repository
-    :param user:  User info to obtain the pygit callback to clone private repositories
-    :return:
+
+    Parameters
+    ----------
+    clone_url : str
+        URL of the repository
+    clone_path : str
+        Path to save the repository
+    user : str
+        User to clone the repository
+
+    Returns
+    -------
+    tuple
+        True if the repository was cloned, False if not and error message if the repository was not cloned
+
     """
     res = True, ""
     repo_name = clone_url.split('.git')[0].split('/')[-1]

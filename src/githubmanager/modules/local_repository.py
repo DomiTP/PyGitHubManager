@@ -15,6 +15,16 @@ from widgets import MplCanvas
 
 class LocalRepository(QWidget):
     def __init__(self, repo_path, user):
+        """
+        Window to show information about a local repository
+
+        Parameters
+        ----------
+        repo_path : str
+            Path to the repository folder
+        user : User
+            User object
+        """
         super(LocalRepository, self).__init__()
         self.ui = Ui_localRepository()
         self.ui.setupUi(self)
@@ -31,6 +41,14 @@ class LocalRepository(QWidget):
         self.load_files()
 
     def load_data(self):
+        """
+        Loads the data from the api and loads it in the UI
+
+        Raises
+        ------
+        Exception
+            If the repo is not found in the user's repositories, it disables some UI elements
+        """
         try:
             self.setWindowTitle(f'{self.repo_name} - {self.owner}')
             repo: Repository = self.user.github.get_repo(self.full_repo_name)
@@ -71,7 +89,7 @@ class LocalRepository(QWidget):
 
     def plot(self):
         """
-        Obtiene los datos de la api y los carga en la gráfica
+        Plots the commits graph in the commits tab of the UI
         """
         response = requests.get(f'https://api.github.com/repos/{self.full_repo_name}/stats/commit_activity',
                                 auth=(self.user.get_data().login, self.user.token))
@@ -89,6 +107,9 @@ class LocalRepository(QWidget):
             self.ui.commitsImageWidget.setLayout(QVBoxLayout(self.ui.commitsImageWidget).addWidget(canvas))
 
     def load_files(self):
+        """
+        Loads the files of the repository in the files tab of the UI
+        """
         self.model = QFileSystemModel()
         self.model.setRootPath(self.repo_path)
         self.ui.treeView.setModel(self.model)
@@ -96,6 +117,9 @@ class LocalRepository(QWidget):
         self.ui.treeView.setSortingEnabled(True)
 
     def config(self):
+        """
+        Configures the UI
+        """
         self.ui.deleteButton.clicked.connect(self.delete_repo)
         self.ui.openFolderButton.clicked.connect(self.open_folder)
         self.ui.openBrowserButton.clicked.connect(self.open_browser)
@@ -103,6 +127,11 @@ class LocalRepository(QWidget):
     def delete_repo(self):
         """
         Deletes the repo folder and all its contents
+
+        Raises
+        ------
+        Exception
+            If the repo folder cannot be deleted and shows an error message
         """
         if delete_repository_dialog('local'):
             try:

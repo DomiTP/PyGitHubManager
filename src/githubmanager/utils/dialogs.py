@@ -4,8 +4,16 @@ from PySide6.QtWidgets import QMessageBox
 def delete_repository_dialog(source):
     """
     Dialog to confirm deletion of a repository.
-    :param source: remote if remote repository, local if local repository
-    :return:  True if user confirms deletion, False otherwise
+
+    Parameters
+    ----------
+    source : str
+        The source of the repository.
+
+    Returns
+    -------
+    bool
+        True if user confirms deletion, False otherwise
     """
     res = False
     msg = QMessageBox()
@@ -34,10 +42,19 @@ def delete_repository_dialog(source):
 def message(type_, message, additional_info=None):
     """
     Show a message box with the given type and message.
-    :param type_:  Type of the message box.
-    :param message:  Message to show.
-    :param additional_info:  Additional information to show.
-    :return:  True if the user clicked the Yes button, False if the user clicked the No button,
+
+    Parameters
+    ----------
+    type_ : str
+        The type of message box.
+    message : str
+        The message to be displayed.
+    additional_info : str, optional
+        Additional information to be displayed.
+
+    Returns
+    -------
+    True if the user clicked the Yes button, False if the user clicked the No button,
     or None if the user clicked the OK button.
     """
     messagebox = QMessageBox()

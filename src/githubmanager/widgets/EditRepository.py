@@ -7,6 +7,16 @@ from utils import delete_repository_dialog, message
 
 class EditRepository(QWidget):
     def __init__(self, repo, repo_widget):
+        """
+        EditRepository class constructor
+
+        Parameters
+        ----------
+        repo : Repository
+            Repository to edit
+        repo_widget : RepositoryWidget
+            RepositoryWidget to close when editing is done
+        """
         super(EditRepository, self).__init__()
 
         self.ui = Ui_RepositoryEdit()
@@ -19,6 +29,9 @@ class EditRepository(QWidget):
         self.config()
 
     def fill(self):
+        """
+        Fill the widgets with the repository data
+        """
         self.ui.nameLineEdit.setText(self.repo.name)
         self.ui.descriptionLineEdit.setText(self.repo.description)
         self.ui.homePageLineEdit.setText(self.repo.homepage)
@@ -28,11 +41,17 @@ class EditRepository(QWidget):
         self.ui.defaultBranchComboBox.setCurrentText(self.repo.default_branch)
 
     def config(self):
+        """
+        Configure the widgets
+        """
         self.ui.acceptButton.clicked.connect(self.accept)
         self.ui.cancelButton.clicked.connect(lambda: self.close())
         self.ui.deleteButton.clicked.connect(self.delete)
 
     def accept(self):
+        """
+        Accept the changes
+        """
         self.repo.edit(
             name=self.ui.nameLineEdit.text(),
             description=self.ui.descriptionLineEdit.text(),
@@ -43,6 +62,14 @@ class EditRepository(QWidget):
         self.close()
 
     def delete(self):
+        """
+        Delete the repository
+
+        Raises
+        ------
+        Exception
+            If there is an error deleting the repository
+        """
         if delete_repository_dialog('remote'):
             try:
                 self.repo.delete()

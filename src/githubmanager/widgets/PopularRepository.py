@@ -7,6 +7,15 @@ from ui.widgets import Ui_PopularRepositories
 
 class PopularRepository(QWidget):
     def __init__(self, repository, user):
+        """
+        Popular repository constructor
+
+        Parameters
+        ----------
+        repository : github.Repository.Repository
+            The repository to display
+        user
+        """
         super(PopularRepository, self).__init__()
         self.ui = Ui_PopularRepositories()
         self.ui.setupUi(self)

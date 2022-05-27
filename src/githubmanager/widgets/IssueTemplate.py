@@ -8,6 +8,14 @@ from utils import time_formatter
 
 class IssueTemplate(QWidget):
     def __init__(self, issue: Issue):
+        """
+        IssueTemplate is a widget that shows the information of an issue.
+
+        Parameters
+        ----------
+        issue : Issue
+            The issue to show.
+        """
         super(IssueTemplate, self).__init__()
         self.ui = Ui_IssueTemplate()
         self.ui.setupUi(self)
@@ -17,6 +25,9 @@ class IssueTemplate(QWidget):
         self.fill()
 
     def fill(self):
+        """
+        Fills the widget with the information of the issue.
+        """
         self.ui.statusNameWidget.setText(self.issue.title)
         self.ui.statusNameWidget.set_text_style(bold=True)
         self.ui.statusNameWidget.set_icon("msc.issues", "green", QSize(20, 20))

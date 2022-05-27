@@ -9,6 +9,14 @@ from utils import message
 
 class EditProfile(QWidget):
     def __init__(self, user):
+        """
+        EditProfile constructor
+
+        Parameters
+        ----------
+        user : User
+            User instance
+        """
         super(EditProfile, self).__init__()
 
         self.ui = Ui_EditProfile()
@@ -20,6 +28,9 @@ class EditProfile(QWidget):
         self.config()
 
     def fill(self):
+        """
+        Fill the widgets with the data
+        """
         self.ui.nameLineEdit.setText(self.user.name)
         self.ui.bioTextEdit.setText(self.user.bio)
         self.ui.companyLineEdit.setText(self.user.company)
@@ -28,10 +39,21 @@ class EditProfile(QWidget):
         self.ui.locationLabel.setPixmap(qta.icon('fa5s.map-marker').pixmap(16, 16))
 
     def config(self):
+        """
+        Configure the widgets
+        """
         self.ui.saveButton.clicked.connect(self.save)
         self.ui.cancelButton.clicked.connect(self.close)
 
     def save(self):
+        """
+        Save the data
+
+        Raises
+        ------
+        Exception
+            If there is an error updating the user
+        """
         try:
             self.user.edit(self.ui.nameLineEdit.text(), bio=self.ui.bioTextEdit.toPlainText(),
                            company=self.ui.companyLineEdit.text(), location=self.ui.locationLineEdit.text())

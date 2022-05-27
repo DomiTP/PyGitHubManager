@@ -8,6 +8,14 @@ from utils import message
 
 class CreateRepository(QWidget):
     def __init__(self, user):
+        """
+        Module for creating a new repository in the user's account.
+
+        Parameters
+        ----------
+        user: User
+            The user who will create the repository.
+        """
         super(CreateRepository, self).__init__()
 
         self.ui = Ui_CreateRepo()
@@ -21,6 +29,9 @@ class CreateRepository(QWidget):
         self.fill()
 
     def fill(self):
+        """
+        Fill the combo boxes with the available templates.
+        """
         ignores = [""]
         repo = self.user.github.get_repo("github/gitignore")
         for file in repo.get_contents(""):
@@ -34,6 +45,9 @@ class CreateRepository(QWidget):
         self.ui.licenseTemplateComboBox.add_items(licenses)
 
     def config(self):
+        """
+        Configure the module.
+        """
         self.ui.cancelButton.clicked.connect(self.close)
         self.ui.createRepoButton.clicked.connect(self.create_repo)
         self.ui.nameLineEdit.textChanged.connect(self.check_name)
@@ -42,6 +56,14 @@ class CreateRepository(QWidget):
         self.ui.warningLabel.hide()
 
     def check_name(self, text):
+        """
+        Check if the name of the repository is valid.
+
+        Parameters
+        ----------
+        text : str
+            The name of the repository.
+        """
         if " " in text:
             self.ui.warningLabel.setText("Your new repository will be created as " + text.replace(" ", "-") + ".")
             if self.ui.warningLabel.isHidden():

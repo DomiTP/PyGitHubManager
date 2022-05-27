@@ -10,6 +10,16 @@ from utils import get_icon, time_formatter
 
 class RepositoryTemplate(QWidget):
     def __init__(self, repo: Repository, user: AuthenticatedUser):
+        """
+        Initialize the template of the repo
+
+        Parameters
+        ----------
+        repo : Repository
+            The repo to display
+        user : AuthenticatedUser
+            The user who owns the repo
+        """
         super(RepositoryTemplate, self).__init__()
         self.ui = Ui_RepositoryTemplate()
         self.ui.setupUi(self)

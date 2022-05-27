@@ -8,6 +8,18 @@ class IconLabel(QWidget):
     HorizontalSpacing = 2
 
     def __init__(self, text, qta_id=None, final_stretch=True):
+        """
+        Initialize the icon label.
+
+        Parameters
+        ----------
+        text : str
+            The text of the label.
+        qta_id : str
+            The qta_id of the icon.
+        final_stretch : bool
+            Whether the label should stretch to the width of the widget.
+        """
         super(IconLabel, self).__init__()
 
         layout = QHBoxLayout()
@@ -29,28 +41,47 @@ class IconLabel(QWidget):
     def set_icon(self, qta_id, color="black", size=IconSize):
         """
         Set the icon to the label with the given qta_id.
-        :param qta_id: The qta_id of the icon.
-        :param color:  The color of the icon.
-        :param size:  The size of the icon.
+
+        Parameters
+        ----------
+        qta_id : str
+            The qta_id of the icon.
+        color : str
+            The color of the icon.
+        size : QSize
+            The size of the icon.
         """
         self.icon.setPixmap(qta.icon(qta_id, color=color).pixmap(size))
 
     def setText(self, text):
         """
         Set the text of the label.
-        :param text:  The text to set.
+
+        Parameters
+        ----------
+        text : str
+            The text of the label.
         """
         self.label.setText(text)
 
     def set_text_style(self, color=None, font_size=None, bold=False, italic=False, underline=False, font_family=None):
         """
         Set the style of the label.
-        :param color:  The color of the text.
-        :param font_size:  The size of the font.
-        :param bold:  Whether the text is bold.
-        :param italic:  Whether the text is italic.
-        :param underline:  Whether the text is underlined.
-        :param font_family:  The font family of the text.
+
+        Parameters
+        ----------
+        color : str
+            The color of the text.
+        font_size : int
+            The size of the font.
+        bold : bool
+            Whether the text should be bold.
+        italic : bool
+            Whether the text should be italic.
+        underline : bool
+            Whether the text should be underlined.
+        font_family : str
+            The font family of the text.
         """
         style = ""
         if color:

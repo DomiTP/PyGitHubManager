@@ -1,4 +1,4 @@
-# githubmanager
+# GitHub Manager
 
 GitHub desktop version created with Python
 

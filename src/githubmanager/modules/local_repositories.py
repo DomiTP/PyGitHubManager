@@ -21,12 +21,23 @@ class WorkerSignals(QObject):
 
 class Worker(QRunnable):
     def __init__(self, path):
+        """
+        Worker to find all local repositories in a given path and emit them asynchronously
+
+        Parameters
+        ----------
+        path : str
+            Path to search for local repositories
+        """
         super(Worker, self).__init__()
         self.path = path
         self.signals = WorkerSignals()
 
     @Slot(str)
     def run(self):
+        """
+        Find all local repositories in a given path and emit them asynchronously
+        """
         try:
             for root, subdirs, files in os.walk(self.path):
                 for d in subdirs:
@@ -46,6 +57,14 @@ class Worker(QRunnable):
 
 class LocalRepositories(QWidget):
     def __init__(self, user):
+        """
+        Initialize the local repositories widget
+
+        Parameters
+        ----------
+        user : User
+            User object
+        """
         super(LocalRepositories, self).__init__()
         self.ui = Ui_LocalRepositories()
         self.ui.setupUi(self)
@@ -59,12 +78,26 @@ class LocalRepositories(QWidget):
         self.thread_load_items()
 
     def load_finished(self):
+        """
+        Function to be executed when the thread is finished to enable some UI elements
+        """
         self.ui.searchButton.setEnabled(True)
         self.ui.searchPathButton.setEnabled(True)
         self.ui.lineEdit.setEnabled(True)
         self.ui.loadingButton.hide()
 
+    @Slot(str, str)
     def add_new_repo(self, folder_name, path):
+        """
+        Add a new repository to the list of local repositories
+
+        Parameters
+        ----------
+        folder_name : str
+            Name of the folder containing the repository
+        path : str
+            Path to the folder containing the repository
+        """
         try:
             item = LocalRepositoryListWidgetItem(folder_name, path)
             widget = LocalRepositoryTemplate(path, self.user)
@@ -75,6 +108,9 @@ class LocalRepositories(QWidget):
             print("Error while adding new repo " + folder_name + " " + path)
 
     def thread_load_items(self):
+        """
+        Load all local repositories in a separate thread
+        """
         self.ui.loadingButton.show()
         self.ui.searchButton.setDisabled(True)
         self.ui.searchPathButton.setDisabled(True)
@@ -102,7 +138,7 @@ class LocalRepositories(QWidget):
 
     def save_path(self):
         """
-        Repository save path
+        Repository save path and update a line edit
         """
         new_route = QFileDialog.getExistingDirectory(self, "Select folder", str(USER_HOME_PATH))
         if new_route:

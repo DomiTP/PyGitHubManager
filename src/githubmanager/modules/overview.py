@@ -13,6 +13,14 @@ from widgets.PopularRepository import PopularRepository
 
 class Overview(QWidget):
     def __init__(self, user):
+        """
+        Widgets for the overview tab to show the user's information
+
+        Parameters
+        ----------
+        user : User
+            User object to show the information
+        """
         super(Overview, self).__init__()
         self.ui = Ui_Overview()
         self.ui.setupUi(self)
@@ -24,6 +32,9 @@ class Overview(QWidget):
 
     @Slot()
     def load_popular_repos(self):
+        """
+        Loads the user's most popular repositories
+        """
         popular_repos: PaginatedList = self.user.get_data().get_repos(visibility="public", sort="updated",
                                                                       direction="desc")
         positions = [(i, j) for i in range(2) for j in range(2)]
@@ -32,6 +43,9 @@ class Overview(QWidget):
 
     @Slot()
     def load_contributions(self):
+        """
+        Loads the user's contributions
+        """
         year = date.today().year
         response = requests.get(f'https://skyline.github.com/{self.user.user.login}/{year}.json',
                                 auth=(self.user.get_data().login, self.user.token))

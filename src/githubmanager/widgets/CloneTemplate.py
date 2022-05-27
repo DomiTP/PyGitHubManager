@@ -8,6 +8,16 @@ from utils import USER_HOME_PATH, clone
 
 class CloneTemplate(QWidget):
     def __init__(self, repository: Repository, user):
+        """
+        The clone window constructor
+
+        Parameters
+        ----------
+        repository : Repository
+            The repository to clone/obtain the url
+        user : User
+            The user instance
+        """
         super(CloneTemplate, self).__init__()
         self.ui = Ui_Clone()
         self.ui.setupUi(self)
@@ -66,8 +76,13 @@ class CloneTemplate(QWidget):
     def res_dialog(self, res, message):
         """
         Show the result of the clone
-        :param res: Result of the operation
-        :param message:  The message to show
+
+        Parameters
+        ----------
+        res : tuple
+            The result of the clone
+        message : str
+            The message to show
         """
         message_box = QMessageBox()
         message_box.setIcon(QMessageBox.Information if res else QMessageBox.Critical)

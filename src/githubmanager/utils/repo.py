@@ -4,7 +4,16 @@ from git import Repo
 def get_repo_info(repo_path):
     """
     Obtain information about the repository.
-    :return: A tuple containing the following information: (username, project_name, full_repo_name)
+
+    Parameters
+    ----------
+    repo_path : str
+        Path to the repository.
+
+    Returns
+    -------
+    repo_info : tuple
+        A tuple containing the following information: (username, project_name, full_repo_name)
     """
 
     repo = Repo(repo_path)

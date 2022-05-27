@@ -6,6 +6,18 @@ from github.PaginatedList import PaginatedList
 
 class User:
     def __init__(self, github, user, token):
+        """
+        Initializes the user object.
+
+        Parameters
+        ----------
+        github : Github
+            Github object.
+        user : AuthenticatedUser
+            Authenticated user.
+        token : str
+            Token of the authenticated user.
+        """
         self.github = github
         self.user: AuthenticatedUser = user
         self.named_user: NamedUser = self.github.get_user(self.user.login)
@@ -16,7 +28,11 @@ class User:
     def generate_repos(self):
         """
         Generates a list of repositories for the authenticated user.
-        :return: True if successful, False otherwise.
+
+        Returns
+        -------
+        bool
+            True if the list of repositories was generated successfully.
         """
         check = False
         if self.user is not None:
@@ -27,7 +43,11 @@ class User:
     def get_repos(self):
         """
         Returns the list of repositories for the authenticated user.
-        :return: List of repositories.
+
+        Returns
+        -------
+        PaginatedList
+            List of repositories.
         """
         check = None
         if self.repos is None:
@@ -40,13 +60,21 @@ class User:
     def get_data(self):
         """
         Returns the data of the authenticated user.
-        :return: Data of the authenticated user.
+
+        Returns
+        -------
+        AuthenticatedUser
+            Data of the authenticated user.
         """
         return self.user
 
     def get_named_user_data(self):
         """
         Returns the data of the named user.
-        :return: Data of the named user.
+
+        Returns
+        -------
+        NamedUser
+            Data of the named user.
         """
         return self.named_user
