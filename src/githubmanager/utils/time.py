@@ -20,6 +20,13 @@ def time_formatter(text, time1=datetime.utcnow(), time2=datetime.utcnow(), suffi
     -------
     str
         The time difference in human-readable format.
+
+    Examples
+    --------
+    >>> time_formatter("Last updated: ", datetime(2020, 1, 1), datetime(2020, 1, 2), "ago")
+    'Last updated: 1 day ago'
+    >>> time_formatter("Reset in: ", datetime(2020, 1, 1), datetime(2020, 1, 3), "")
+    'Reset in: 2 days'
     """
     now = time1
     last = time2

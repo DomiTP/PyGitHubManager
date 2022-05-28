@@ -18,6 +18,11 @@ def check_save_path(save_path):
     -------
     bool
         True if the path is correct, False if not
+
+    Examples
+    --------
+    >>> check_save_path("~/repos/")
+    >>> check_save_path("/home/user/repos/")
     """
 
     check = False
@@ -48,6 +53,11 @@ def check_if_repo_exists(repo_path):
     -------
     bool
         True if the repository exists, False if not
+
+    Examples
+    --------
+    >>> check_if_repo_exists("/home/user/repo")
+    >>> check_if_repo_exists("~/repo")
     """
     response = False
     if os.path.exists(repo_path):
@@ -65,13 +75,17 @@ def clone(clone_url, clone_path, user):
         URL of the repository
     clone_path : str
         Path to save the repository
-    user : str
+    user : modules.User
         User to clone the repository
 
     Returns
     -------
     tuple
         True if the repository was cloned, False if not and error message if the repository was not cloned
+
+    Examples
+    --------
+    >>> clone("git@github.com:user/repo.git", "~/repos/", user)
 
     """
     res = True, ""

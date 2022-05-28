@@ -20,6 +20,11 @@ def get_icon(icon_name):
     -------
     str
         Path of the icon
+
+    Examples
+    --------
+    >>> get_icon('icon.png')
+    '/home/user/Documents/Projects/project/resources/icons/icon.png'
     """
     icon = os.path.join(ICONS_FOLDER, icon_name)
     if not file_exists(icon):
@@ -36,6 +41,13 @@ def file_exists(file):
     -------
     bool
         True if the file exists, False otherwise
+
+    Examples
+    --------
+    >>> file_exists('/home/user/Documents/Projects/project/resources/icons/icon.png')
+    True
+    >>> file_exists('/home/user/Documents/Projects/project/resources/icons/icon.png.png')
+    False
     """
     return os.path.exists(file)
 

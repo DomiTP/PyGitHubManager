@@ -14,6 +14,13 @@ def get_repo_info(repo_path):
     -------
     repo_info : tuple
         A tuple containing the following information: (username, project_name, full_repo_name)
+
+    Examples
+    --------
+    >>> get_repo_info('/home/user/repo')
+    ('user', 'repo', 'user/repo')
+    >>> get_repo_info('~/repo')
+    ('user', 'repo', 'user/repo')
     """
 
     repo = Repo(repo_path)

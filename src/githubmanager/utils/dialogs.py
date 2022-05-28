@@ -9,11 +9,20 @@ def delete_repository_dialog(source):
     ----------
     source : str
         The source of the repository.
+        Local: The repository is local.
+        Remote: The repository is remote.
 
     Returns
     -------
     bool
         True if user confirms deletion, False otherwise
+
+    Examples
+    --------
+    >>> delete_repository_dialog('local')
+    True
+    >>> delete_repository_dialog('remote')
+    False
     """
     res = False
     msg = QMessageBox()
@@ -39,7 +48,7 @@ def delete_repository_dialog(source):
     return res
 
 
-def message(type_, message, additional_info=None):
+def message(type_, msg, additional_info=None):
     """
     Show a message box with the given type and message.
 
@@ -47,7 +56,7 @@ def message(type_, message, additional_info=None):
     ----------
     type_ : str
         The type of message box.
-    message : str
+    msg : str
         The message to be displayed.
     additional_info : str, optional
         Additional information to be displayed.
@@ -56,6 +65,15 @@ def message(type_, message, additional_info=None):
     -------
     True if the user clicked the Yes button, False if the user clicked the No button,
     or None if the user clicked the OK button.
+
+    Examples
+    --------
+    >>> message('error', 'An error occurred.', 'Error message.')
+    None
+    >>> message('warning', 'A warning occurred.', 'Warning message.')
+    True / False
+    >>> message('success', 'An information message.')
+    None
     """
     messagebox = QMessageBox()
     if type_ == 'error':
@@ -71,7 +89,7 @@ def message(type_, message, additional_info=None):
         messagebox.setWindowTitle('Success')
         messagebox.setStandardButtons(QMessageBox.Ok)
 
-    messagebox.setText(message)
+    messagebox.setText(msg)
     if additional_info:
         messagebox.setDetailedText(additional_info)
 

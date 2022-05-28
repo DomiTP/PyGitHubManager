@@ -15,6 +15,15 @@ def convert_float_to_decimal(f=0.0, precision=2):
     -------
     str
         The converted string.
+
+    Examples
+    --------
+    >>> convert_float_to_decimal(1.23456789, 2)
+    '1.23'
+    >>> convert_float_to_decimal(1.23456789, 3)
+    '1.235'
+    >>> convert_float_to_decimal(1.23456789, 4)
+    '1.2346'
     """
     return ("%." + str(precision) + "f") % f
 
@@ -40,6 +49,15 @@ def format_file_size(size, sizeIn, sizeOut, precision=0):
     -------
     str
         The converted string.
+
+    Examples
+    --------
+    >>> format_file_size(1.23456789, "B", "B", 0)
+    '1.23 B'
+    >>> format_file_size(1.23456789, "B", "KB", 0)
+    '1.23 KB'
+    >>> format_file_size(1.23456789, "B", "MB", 0)
+    '1.23 MB'
     """
     assert sizeIn.upper() in {"B", "KB", "MB", "GB"}, "sizeIn type error"
     assert sizeOut.upper() in {"B", "KB", "MB", "GB"}, "sizeOut type error"
