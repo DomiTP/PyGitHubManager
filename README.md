@@ -9,7 +9,7 @@ GitHub desktop version created with Python and PySide6.
 ## Installation
 
 ```bash
-$ pip install githubmanager
+$ pip install pygithubmanager
 ```
 
 ## Usage

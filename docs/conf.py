@@ -6,7 +6,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u"GitHub Manager"
+project = u"PyGitHubManager"
 copyright = u"2022, DomiTP"
 author = u"DomiTP"
 

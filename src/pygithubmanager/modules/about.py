@@ -18,4 +18,4 @@ class About(QMainWindow):
 
     def config_ui(self):
         self.ui.ghmImageLabel.setPixmap(QPixmap(LOGO).scaled(QSize(120, 120)))
-        self.ui.versionLabel.setText(version("githubmanager"))
+        self.ui.versionLabel.setText(version("pygithubmanager"))
