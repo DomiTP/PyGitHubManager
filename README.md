@@ -2,7 +2,7 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
-# GitHub Manager
+# PyGitHubManager
 
 GitHub desktop version created with Python and PySide6.
 
@@ -14,7 +14,11 @@ $ pip install pygithubmanager
 
 ## Usage
 
-- TODO
+```python
+from pygithubmanager import GitHubManager
+
+GitHubManager()
+```
 
 ## Contributing
 
