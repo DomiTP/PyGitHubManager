@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.1 (2022-06-07)
+### Fix
+* Readthedocs configuration ([`bf9caa6`](https://github.com/DomiTP/PyGitHubManager/commit/bf9caa69b56e94c99a9cd504c9a7e643f56cb58a))
+
+### Documentation
+* Updated readme ([`066dcc8`](https://github.com/DomiTP/PyGitHubManager/commit/066dcc85897b9f6e814d6828148363c93339e248))
+
 ## v0.3.0 (2022-05-29)
 ### Feature
 * Add CI/CD workflow ([`af6fb7b`](https://github.com/DomiTP/PyGitHubManager/commit/af6fb7b516f1c207f69afc242fa590d3491e2bf9))

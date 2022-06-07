@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "PyGithubManager"
-version = "0.3.0"
+version = "0.3.1"
 description = "GitHub desktop version created with Python"
 authors = ["DomiTP"]
 license = "GNU General Public License v3.0"
