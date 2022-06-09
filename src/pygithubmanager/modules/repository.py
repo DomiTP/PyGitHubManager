@@ -181,8 +181,11 @@ class Repository(QWidget):
         branch_name : str
             Branch name
         """
-        content = self.repository.get_contents("/", ref=branch_name)
-        self.load_content(content)
+        try:
+            content = self.repository.get_contents("/", ref=branch_name)
+            self.load_content(content)
+        except GithubException as e:
+            message("Error", e.data["message"])
 
     def load_content(self, content):
         """

@@ -27,9 +27,9 @@ def delete_repository_dialog(source):
     res = False
     msg = QMessageBox()
     msg.setIcon(QMessageBox.Warning)
-    if source == 'local':
+    if source.lower() == 'local':
         msg.setText("You are about to delete the repository from the disk, this action cannot be undone.")
-    elif source == 'remote':
+    elif source.lower() == 'remote':
         msg.setText("You are about to delete the repository from GitHub, this action cannot be undone.")
     msg.setInformativeText("Are you sure you want to continue?")
     msg.setWindowTitle("Warning")
@@ -76,15 +76,15 @@ def message(type_, msg, additional_info=None):
     None
     """
     messagebox = QMessageBox()
-    if type_ == 'error':
+    if type_.lower() == 'error':
         messagebox.setIcon(QMessageBox.Critical)
         messagebox.setWindowTitle('Error')
         messagebox.setStandardButtons(QMessageBox.Ok)
-    elif type_ == 'warning':
+    elif type_.lower() == 'warning':
         messagebox.setIcon(QMessageBox.Warning)
         messagebox.setWindowTitle('Warning')
         messagebox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
-    elif type_ == 'success':
+    elif type_.lower() == 'success':
         messagebox.setIcon(QMessageBox.Information)
         messagebox.setWindowTitle('Success')
         messagebox.setStandardButtons(QMessageBox.Ok)
