@@ -8,10 +8,15 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QMetaObject)
-from PySide6.QtGui import (QFont)
-from PySide6.QtWidgets import (QGridLayout, QLabel, QLayout,
-                               QSizePolicy, QVBoxLayout, QWidget)
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QGridLayout, QLabel, QLayout,
+    QSizePolicy, QVBoxLayout, QWidget)
 
 class Ui_Overview(object):
     def setupUi(self, Overview):
@@ -54,6 +59,7 @@ class Ui_Overview(object):
 
         self.verticalLayout.addWidget(self.contributionsWidget)
 
+
         self.retranslateUi(Overview)
 
         QMetaObject.connectSlotsByName(Overview)
@@ -61,7 +67,7 @@ class Ui_Overview(object):
 
     def retranslateUi(self, Overview):
         Overview.setWindowTitle(QCoreApplication.translate("Overview", u"Form", None))
-        self.label.setText(QCoreApplication.translate("Overview", u"Popular repositories", None))
+        self.label.setText(QCoreApplication.translate("Overview", u"Recent repositories", None))
         self.label_2.setText(QCoreApplication.translate("Overview", u"Last year contributions", None))
     # retranslateUi
 

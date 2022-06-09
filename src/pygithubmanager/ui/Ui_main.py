@@ -210,7 +210,7 @@ class Ui_MainWindow(object):
         self.editProfileButton.setText(QCoreApplication.translate("MainWindow", u"Edit profile", None))
         self.infoButton.setText("")
         self.mainTabWidget.setTabText(self.mainTabWidget.indexOf(self.overviewTab), QCoreApplication.translate("MainWindow", u"Overview", None))
-        self.mainTabWidget.setTabText(self.mainTabWidget.indexOf(self.repositoriesTab), QCoreApplication.translate("MainWindow", u"Repositories", None))
+        self.mainTabWidget.setTabText(self.mainTabWidget.indexOf(self.repositoriesTab), QCoreApplication.translate("MainWindow", u"Remote", None))
         self.mainTabWidget.setTabText(self.mainTabWidget.indexOf(self.localTab), QCoreApplication.translate("MainWindow", u"Local", None))
         self.menuHelp.setTitle(QCoreApplication.translate("MainWindow", u"Help", None))
         self.menuMenu.setTitle(QCoreApplication.translate("MainWindow", u"Menu", None))
