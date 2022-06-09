@@ -3,8 +3,8 @@ from PySide6.QtWidgets import QWidget
 from github import GithubException
 from github.AuthenticatedUser import AuthenticatedUser
 
-from ui.widgets import Ui_EditProfile
-from utils import message
+from pygithubmanager.ui.widgets import Ui_EditProfile
+from pygithubmanager.utils import message
 
 
 class EditProfile(QWidget):

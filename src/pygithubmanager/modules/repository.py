@@ -10,10 +10,10 @@ from github import GithubException
 from github.AuthenticatedUser import AuthenticatedUser
 from github.Commit import Commit
 
-from modules import User
-from ui.widgets import Ui_repository
-from utils import time_formatter, message
-from widgets import CloneTemplate, FileTemplate, RepositoryListWidgetItem, EditRepository, IssueTemplate
+from pygithubmanager.modules import User
+from pygithubmanager.ui.widgets import Ui_repository
+from pygithubmanager.utils import time_formatter, message
+from pygithubmanager.widgets import CloneTemplate, FileTemplate, RepositoryListWidgetItem, EditRepository, IssueTemplate
 
 
 class WorkerSignals(QObject):

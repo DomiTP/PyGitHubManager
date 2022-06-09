@@ -12,8 +12,8 @@ from PySide6.QtCore import (QCoreApplication, QMetaObject)
 from PySide6.QtWidgets import (QFrame, QHBoxLayout, QLabel,
                                QSizePolicy, QSpacerItem, QVBoxLayout)
 
-from widgets.ClickableLabel import ClickableLabel
-from widgets.IconLabel import IconLabel
+from pygithubmanager.widgets.ClickableLabel import ClickableLabel
+from pygithubmanager.widgets.IconLabel import IconLabel
 
 
 class Ui_PopularRepositories(object):

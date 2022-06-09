@@ -4,8 +4,8 @@ from PySide6.QtWidgets import QWidget
 from github.AuthenticatedUser import AuthenticatedUser
 from github.Repository import Repository
 
-from ui.widgets import Ui_RepositoryTemplate
-from utils import get_icon, time_formatter
+from pygithubmanager.ui.widgets import Ui_RepositoryTemplate
+from pygithubmanager.utils import get_icon, time_formatter
 
 
 class RepositoryTemplate(QWidget):

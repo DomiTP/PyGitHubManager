@@ -11,7 +11,7 @@
 from PySide6.QtCore import (QCoreApplication, QMetaObject, Qt)
 from PySide6.QtWidgets import (QHBoxLayout, QLabel)
 
-from widgets.IconLabel import IconLabel
+from pygithubmanager.widgets.IconLabel import IconLabel
 
 
 class Ui_FileTemplate(object):

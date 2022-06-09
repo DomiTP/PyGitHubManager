@@ -3,8 +3,8 @@ from PySide6.QtCore import QUrl
 from PySide6.QtGui import QIcon, QDesktopServices
 from PySide6.QtWidgets import QWidget
 
-from ui.widgets import Ui_LocalRepositoryTemplate
-from utils import get_repo_info
+from pygithubmanager.ui.widgets import Ui_LocalRepositoryTemplate
+from pygithubmanager.utils import get_repo_info
 
 
 class LocalRepositoryTemplate(QWidget):

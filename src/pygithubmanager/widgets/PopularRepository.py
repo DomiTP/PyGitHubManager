@@ -1,8 +1,8 @@
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QWidget
 
-from modules.repository import Repository
-from ui.widgets import Ui_PopularRepositories
+from pygithubmanager.modules.repository import Repository
+from pygithubmanager.ui.widgets import Ui_PopularRepositories
 
 
 class PopularRepository(QWidget):

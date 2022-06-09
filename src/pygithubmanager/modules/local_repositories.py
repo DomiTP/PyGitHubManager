@@ -6,11 +6,11 @@ import qtawesome as qta
 from PySide6.QtCore import QRunnable, Signal, Slot, QThreadPool, QObject
 from PySide6.QtWidgets import QWidget, QFileDialog
 
-from modules.local_repository import LocalRepository
-from ui.widgets import Ui_LocalRepositories
-from utils import USER_HOME_PATH
-from widgets import LocalRepositoryListWidgetItem
-from widgets.LocalRepositoryTemplate import LocalRepositoryTemplate
+from pygithubmanager.modules.local_repository import LocalRepository
+from pygithubmanager.ui.widgets import Ui_LocalRepositories
+from pygithubmanager.utils import USER_HOME_PATH
+from pygithubmanager.widgets import LocalRepositoryListWidgetItem
+from pygithubmanager.widgets.LocalRepositoryTemplate import LocalRepositoryTemplate
 
 
 class WorkerSignals(QObject):

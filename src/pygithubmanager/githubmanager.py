@@ -7,13 +7,16 @@ import requests
 from PySide6.QtCore import QSize, QTimer
 from PySide6.QtGui import QIcon, QPixmap, QImage, Qt, QScreen
 from PySide6.QtWidgets import QMainWindow, QApplication, QVBoxLayout, QMessageBox, QWidget
+from pygithubmanager.modules import LocalRepositories
+from pygithubmanager.modules.about import About
+from pygithubmanager.modules.login import Login
+from pygithubmanager.ui import Ui_MainWindow
+from pygithubmanager.utils import time_formatter
+from pygithubmanager.utils.resources import LOGO
 
-from modules import Login, About, LocalRepositories
-from modules.overview import Overview
-from modules.repositories import Repositories
-from ui import Ui_MainWindow
-from utils import LOGO, time_formatter
-from widgets import EditProfile
+from pygithubmanager.modules.overview import Overview
+from pygithubmanager.modules.repositories import Repositories
+from pygithubmanager.widgets import EditProfile
 
 try:
     from ctypes import windll  # Only exists on Windows.

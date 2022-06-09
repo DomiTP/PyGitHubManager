@@ -2,8 +2,8 @@ from PySide6.QtCore import QSize
 from PySide6.QtWidgets import QWidget, QLabel
 from github.Issue import Issue
 
-from ui.widgets import Ui_IssueTemplate
-from utils import time_formatter
+from pygithubmanager.ui.widgets import Ui_IssueTemplate
+from pygithubmanager.utils import time_formatter
 
 
 class IssueTemplate(QWidget):

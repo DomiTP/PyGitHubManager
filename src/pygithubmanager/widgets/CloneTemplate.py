@@ -2,8 +2,8 @@ import qtawesome as qta
 from PySide6.QtWidgets import QWidget, QApplication, QFileDialog, QMessageBox
 from github.Repository import Repository
 
-from ui.widgets import Ui_Clone
-from utils import USER_HOME_PATH, clone
+from pygithubmanager.ui.widgets import Ui_Clone
+from pygithubmanager.utils import USER_HOME_PATH, clone
 
 
 class CloneTemplate(QWidget):

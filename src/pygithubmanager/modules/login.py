@@ -7,11 +7,11 @@ from PySide6.QtWidgets import QMainWindow, QLineEdit, QApplication
 from github import Github, BadCredentialsException
 from requests import ConnectTimeout
 
-from modules import About
-from modules.user import User
-from ui import Ui_GitHubManagerLogin
-from utils import LOGO, get_icon
-from widgets import CustomWebEnginePage
+from pygithubmanager.modules import About
+from pygithubmanager.modules.user import User
+from pygithubmanager.ui import Ui_GitHubManagerLogin
+from pygithubmanager.utils import LOGO, get_icon
+from pygithubmanager.widgets import CustomWebEnginePage
 
 
 class Login(QMainWindow):

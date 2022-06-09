@@ -8,14 +8,19 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QMetaObject, Qt)
-from PySide6.QtGui import (QFont)
-from PySide6.QtWidgets import (QComboBox, QFrame, QHBoxLayout,
-                               QLabel, QLayout, QListWidget, QPushButton, QSizePolicy, QSpacerItem, QTabWidget,
-                               QVBoxLayout, QWidget)
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QHBoxLayout,
+    QLabel, QLayout, QListWidget, QListWidgetItem,
+    QPushButton, QSizePolicy, QSpacerItem, QTabWidget,
+    QVBoxLayout, QWidget)
 
-from widgets.IconLabel import IconLabel
-
+from pygithubmanager.widgets.IconLabel import IconLabel
 
 class Ui_repository(object):
     def setupUi(self, repository):
@@ -32,11 +37,18 @@ class Ui_repository(object):
 
         self.horizontalLayout_5.addWidget(self.repoLabel)
 
-        self.watchButton = QPushButton(repository)
-        self.watchButton.setObjectName(u"watchButton")
+        self.openInGithubButton = QPushButton(repository)
+        self.openInGithubButton.setObjectName(u"openInGithubButton")
         sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.openInGithubButton.sizePolicy().hasHeightForWidth())
+        self.openInGithubButton.setSizePolicy(sizePolicy)
+
+        self.horizontalLayout_5.addWidget(self.openInGithubButton)
+
+        self.watchButton = QPushButton(repository)
+        self.watchButton.setObjectName(u"watchButton")
         sizePolicy.setHeightForWidth(self.watchButton.sizePolicy().hasHeightForWidth())
         self.watchButton.setSizePolicy(sizePolicy)
 
@@ -192,6 +204,7 @@ class Ui_repository(object):
 
         self.horizontalLayout_2.addWidget(self.configButton)
 
+
         self.verticalLayout_3.addLayout(self.horizontalLayout_2)
 
         self.descLabel = QLabel(self.code)
@@ -236,14 +249,6 @@ class Ui_repository(object):
 
         self.verticalLayout_3.addWidget(self.line)
 
-        self.label_2 = QLabel(self.code)
-        self.label_2.setObjectName(u"label_2")
-        sizePolicy.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
-        self.label_2.setSizePolicy(sizePolicy)
-        self.label_2.setFont(font)
-
-        self.verticalLayout_3.addWidget(self.label_2)
-
         self.releasesWidget = IconLabel(self.code)
         self.releasesWidget.setObjectName(u"releasesWidget")
         sizePolicy.setHeightForWidth(self.releasesWidget.sizePolicy().hasHeightForWidth())
@@ -254,6 +259,7 @@ class Ui_repository(object):
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.verticalLayout_3.addItem(self.verticalSpacer)
+
 
         self.horizontalLayout.addLayout(self.verticalLayout_3)
 
@@ -271,9 +277,11 @@ class Ui_repository(object):
 
         self.verticalLayout.addWidget(self.tabWidget)
 
+
         self.retranslateUi(repository)
 
         self.tabWidget.setCurrentIndex(0)
+
 
         QMetaObject.connectSlotsByName(repository)
     # setupUi
@@ -281,6 +289,7 @@ class Ui_repository(object):
     def retranslateUi(self, repository):
         repository.setWindowTitle(QCoreApplication.translate("repository", u"Form", None))
         self.repoLabel.setText(QCoreApplication.translate("repository", u"repo", None))
+        self.openInGithubButton.setText(QCoreApplication.translate("repository", u"Open in GitHub", None))
         self.watchButton.setText(QCoreApplication.translate("repository", u"Watch", None))
         self.forkButton.setText(QCoreApplication.translate("repository", u"Fork", None))
         self.starButton.setText(QCoreApplication.translate("repository", u"Star", None))
@@ -293,10 +302,7 @@ class Ui_repository(object):
         self.label.setText(QCoreApplication.translate("repository", u"About", None))
         self.configButton.setText("")
         self.descLabel.setText(QCoreApplication.translate("repository", u"desc", None))
-        self.label_2.setText(QCoreApplication.translate("repository", u"Releases", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.code),
-                                  QCoreApplication.translate("repository", u"Code", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.issues),
-                                  QCoreApplication.translate("repository", u"Issues", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.code), QCoreApplication.translate("repository", u"Code", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.issues), QCoreApplication.translate("repository", u"Issues", None))
     # retranslateUi
 

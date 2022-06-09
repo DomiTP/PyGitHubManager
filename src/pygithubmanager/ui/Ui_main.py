@@ -8,16 +8,20 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QMetaObject, QRect,
-                            QSize, Qt)
-from PySide6.QtGui import (QAction, QFont, QIcon)
-from PySide6.QtWidgets import (QHBoxLayout, QLabel, QLayout,
-                               QMenu, QMenuBar, QPushButton,
-                               QSizePolicy, QSpacerItem, QStatusBar, QTabWidget,
-                               QVBoxLayout, QWidget)
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
+    QCursor, QFont, QFontDatabase, QGradient,
+    QIcon, QImage, QKeySequence, QLinearGradient,
+    QPainter, QPalette, QPixmap, QRadialGradient,
+    QTransform)
+from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QLayout,
+    QMainWindow, QMenu, QMenuBar, QPushButton,
+    QSizePolicy, QSpacerItem, QStatusBar, QTabWidget,
+    QVBoxLayout, QWidget)
 
-from widgets.IconLabel import IconLabel
-
+from pygithubmanager.widgets.IconLabel import IconLabel
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -55,7 +59,7 @@ class Ui_MainWindow(object):
         font.setPointSize(11)
         font.setBold(True)
         self.nameLabel.setFont(font)
-        self.nameLabel.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
+        self.nameLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.verticalLayout_2.addWidget(self.nameLabel)
 
@@ -66,7 +70,7 @@ class Ui_MainWindow(object):
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.userNameLabel.sizePolicy().hasHeightForWidth())
         self.userNameLabel.setSizePolicy(sizePolicy1)
-        self.userNameLabel.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
+        self.userNameLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.verticalLayout_2.addWidget(self.userNameLabel)
 
@@ -74,7 +78,7 @@ class Ui_MainWindow(object):
         self.bioLabel.setObjectName(u"bioLabel")
         sizePolicy1.setHeightForWidth(self.bioLabel.sizePolicy().hasHeightForWidth())
         self.bioLabel.setSizePolicy(sizePolicy1)
-        self.bioLabel.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
+        self.bioLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.verticalLayout_2.addWidget(self.bioLabel)
 
@@ -186,6 +190,7 @@ class Ui_MainWindow(object):
 
         self.mainTabWidget.setCurrentIndex(0)
 
+
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
@@ -195,21 +200,18 @@ class Ui_MainWindow(object):
         self.actionAyuda.setText(QCoreApplication.translate("MainWindow", u"Ayuda de GitHub Manager", None))
         self.actionExit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
         self.actionReload.setText(QCoreApplication.translate("MainWindow", u"Reload", None))
-        # if QT_CONFIG(shortcut)
+#if QT_CONFIG(shortcut)
         self.actionReload.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+R", None))
-        # endif // QT_CONFIG(shortcut)
+#endif // QT_CONFIG(shortcut)
         self.profileImageLabel.setText("")
         self.nameLabel.setText(QCoreApplication.translate("MainWindow", u"name", None))
         self.userNameLabel.setText(QCoreApplication.translate("MainWindow", u"username", None))
         self.bioLabel.setText(QCoreApplication.translate("MainWindow", u"bio", None))
         self.editProfileButton.setText(QCoreApplication.translate("MainWindow", u"Edit profile", None))
         self.infoButton.setText("")
-        self.mainTabWidget.setTabText(self.mainTabWidget.indexOf(self.overviewTab),
-                                      QCoreApplication.translate("MainWindow", u"Overview", None))
-        self.mainTabWidget.setTabText(self.mainTabWidget.indexOf(self.repositoriesTab),
-                                      QCoreApplication.translate("MainWindow", u"Repositories", None))
-        self.mainTabWidget.setTabText(self.mainTabWidget.indexOf(self.localTab),
-                                      QCoreApplication.translate("MainWindow", u"Local", None))
+        self.mainTabWidget.setTabText(self.mainTabWidget.indexOf(self.overviewTab), QCoreApplication.translate("MainWindow", u"Overview", None))
+        self.mainTabWidget.setTabText(self.mainTabWidget.indexOf(self.repositoriesTab), QCoreApplication.translate("MainWindow", u"Repositories", None))
+        self.mainTabWidget.setTabText(self.mainTabWidget.indexOf(self.localTab), QCoreApplication.translate("MainWindow", u"Local", None))
         self.menuHelp.setTitle(QCoreApplication.translate("MainWindow", u"Help", None))
         self.menuMenu.setTitle(QCoreApplication.translate("MainWindow", u"Menu", None))
     # retranslateUi

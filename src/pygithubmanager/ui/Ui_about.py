@@ -8,21 +8,26 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QMetaObject, Qt)
-from PySide6.QtGui import (QAction, QFont)
-from PySide6.QtWidgets import (QHBoxLayout, QLabel, QLayout,
-                               QSizePolicy, QStatusBar, QVBoxLayout,
-                               QWidget)
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
+    QCursor, QFont, QFontDatabase, QGradient,
+    QIcon, QImage, QKeySequence, QLinearGradient,
+    QPainter, QPalette, QPixmap, QRadialGradient,
+    QTransform)
+from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QLayout,
+    QMainWindow, QSizePolicy, QStatusBar, QVBoxLayout,
+    QWidget)
 
-from widgets.HyperlinkLabel import HyperlinkLabel
-
+from pygithubmanager.widgets.HyperlinkLabel import HyperlinkLabel
 
 class Ui_GitHubManagerAbout(object):
     def setupUi(self, GitHubManagerAbout):
         if not GitHubManagerAbout.objectName():
             GitHubManagerAbout.setObjectName(u"GitHubManagerAbout")
         GitHubManagerAbout.setEnabled(True)
-        GitHubManagerAbout.resize(432, 192)
+        GitHubManagerAbout.resize(465, 186)
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -93,6 +98,7 @@ class Ui_GitHubManagerAbout(object):
 
         self.horizontalLayout_2.addWidget(self.versionLabel)
 
+
         self.verticalLayout.addLayout(self.horizontalLayout_2)
 
         self.horizontalLayout_3 = QHBoxLayout()
@@ -112,6 +118,7 @@ class Ui_GitHubManagerAbout(object):
 
         self.horizontalLayout_3.addWidget(self.gitHubLabel)
 
+
         self.verticalLayout.addLayout(self.horizontalLayout_3)
 
         self.horizontalLayout_4 = QHBoxLayout()
@@ -130,6 +137,7 @@ class Ui_GitHubManagerAbout(object):
         self.issueTrackerLabel.setSizePolicy(sizePolicy1)
 
         self.horizontalLayout_4.addWidget(self.issueTrackerLabel)
+
 
         self.verticalLayout.addLayout(self.horizontalLayout_4)
 
@@ -161,13 +169,18 @@ class Ui_GitHubManagerAbout(object):
 
         self.horizontalLayout_6.addWidget(self.icons8Label)
 
+
         self.verticalLayout_3.addLayout(self.horizontalLayout_6)
+
 
         self.horizontalLayout_5.addLayout(self.verticalLayout_3)
 
+
         self.verticalLayout.addLayout(self.horizontalLayout_5)
 
+
         self.horizontalLayout.addLayout(self.verticalLayout)
+
 
         self.verticalLayout_2.addLayout(self.horizontalLayout)
 
@@ -179,26 +192,23 @@ class Ui_GitHubManagerAbout(object):
         self.retranslateUi(GitHubManagerAbout)
 
         QMetaObject.connectSlotsByName(GitHubManagerAbout)
-
     # setupUi
 
     def retranslateUi(self, GitHubManagerAbout):
         GitHubManagerAbout.setWindowTitle(QCoreApplication.translate("GitHubManagerAbout", u"About", None))
         self.actionAbout.setText(QCoreApplication.translate("GitHubManagerAbout", u"About", None))
-        self.actionHow_to_get_an_GitHub_acces_token.setText(
-            QCoreApplication.translate("GitHubManagerAbout", u"How to get an GitHub acces token", None))
+        self.actionHow_to_get_an_GitHub_acces_token.setText(QCoreApplication.translate("GitHubManagerAbout", u"How to get an GitHub acces token", None))
         self.actionExit.setText(QCoreApplication.translate("GitHubManagerAbout", u"Exit", None))
         self.signInLabel.setText(QCoreApplication.translate("GitHubManagerAbout", u"About GitHub Manager", None))
         self.ghmImageLabel.setText("")
         self.label.setText(QCoreApplication.translate("GitHubManagerAbout", u"Version:", None))
         self.versionLabel.setText(QCoreApplication.translate("GitHubManagerAbout", u"0.0", None))
         self.label_2.setText(QCoreApplication.translate("GitHubManagerAbout", u"GitHub:", None))
-        self.gitHubLabel.setText(
-            QCoreApplication.translate("GitHubManagerAbout", u"https://github.com/DomiTP/GitHub-Manager", None))
+        self.gitHubLabel.setText(QCoreApplication.translate("GitHubManagerAbout", u"https://github.com/DomiTP/PyGitHubManager", None))
         self.label_4.setText(QCoreApplication.translate("GitHubManagerAbout", u"GitHub Issue Tracker:", None))
-        self.issueTrackerLabel.setText(
-            QCoreApplication.translate("GitHubManagerAbout", u"https://github.com/DomiTP/GitHub-Manager/issues", None))
+        self.issueTrackerLabel.setText(QCoreApplication.translate("GitHubManagerAbout", u"https://github.com/DomiTP/PyGitHubManager/issues", None))
         self.label_6.setText(QCoreApplication.translate("GitHubManagerAbout", u"Resources:", None))
         self.label_7.setText(QCoreApplication.translate("GitHubManagerAbout", u"Icons by icons8:", None))
         self.icons8Label.setText(QCoreApplication.translate("GitHubManagerAbout", u"https://icons8.com", None))
     # retranslateUi
+

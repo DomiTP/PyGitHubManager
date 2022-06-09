@@ -1,8 +1,8 @@
 from PySide6.QtWidgets import QWidget
 from github.ContentFile import ContentFile
 
-from ui.widgets import Ui_FileTemplate
-from utils import format_file_size
+from pygithubmanager.ui.widgets import Ui_FileTemplate
+from pygithubmanager.utils import format_file_size
 
 
 class FileTemplate(QWidget):

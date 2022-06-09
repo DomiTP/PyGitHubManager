@@ -6,9 +6,9 @@ from PySide6.QtWidgets import QWidget, QVBoxLayout
 from dateutil.relativedelta import relativedelta
 from github.PaginatedList import PaginatedList
 
-from ui.widgets import Ui_Overview
-from widgets import MplCanvas
-from widgets.PopularRepository import PopularRepository
+from pygithubmanager.ui.widgets import Ui_Overview
+from pygithubmanager.widgets import MplCanvas
+from pygithubmanager.widgets.PopularRepository import PopularRepository
 
 
 class Overview(QWidget):

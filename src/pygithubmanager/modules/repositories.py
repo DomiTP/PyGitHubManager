@@ -3,10 +3,10 @@ from PySide6.QtCore import QRunnable, Signal, Slot, QThreadPool, QObject
 from PySide6.QtWidgets import QWidget, QListWidgetItem
 from github.Repository import Repository as GithubRepository
 
-from modules.create_repository import CreateRepository
-from modules.repository import Repository
-from ui import Ui_Repositories
-from widgets import RepositoryTemplate, RepositoriesListWidgetItem
+from pygithubmanager.modules.create_repository import CreateRepository
+from pygithubmanager.modules.repository import Repository
+from pygithubmanager.ui import Ui_Repositories
+from pygithubmanager.widgets import RepositoryTemplate
 
 
 class WorkerSignals(QObject):
@@ -52,6 +52,7 @@ class Repositories(QWidget):
 
         self.user = user
         self.open_repo = None
+        self.create_repo = None
         self.worker = Worker(self.user)
 
         self.threadpool = QThreadPool()
@@ -107,8 +108,8 @@ class Repositories(QWidget):
         """
         Opens a new window to create a new repository
         """
-        create_repo = CreateRepository(self.user)
-        create_repo.show()
+        self.create_repo = CreateRepository(self.user)
+        self.create_repo.show()
 
     def open_repository(self):
         """

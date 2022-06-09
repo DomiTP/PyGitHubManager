@@ -14,8 +14,8 @@ from PySide6.QtWidgets import (QCheckBox, QFormLayout, QHBoxLayout,
                                QLabel, QLineEdit, QPushButton, QSizePolicy,
                                QVBoxLayout)
 
-from widgets.AutocompletableComboBox import Autocomplete
-from widgets.IconLabel import IconLabel
+from pygithubmanager.widgets.AutocompletableComboBox import Autocomplete
+from pygithubmanager.widgets.IconLabel import IconLabel
 
 
 class Ui_CreateRepo(object):

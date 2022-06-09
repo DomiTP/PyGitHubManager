@@ -21,7 +21,7 @@ from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QPushButton, QSizePolicy, QSpacerItem, QStatusBar,
     QVBoxLayout, QWidget)
 
-from widgets.IconLabel import IconLabel
+from pygithubmanager.widgets.IconLabel import IconLabel
 
 class Ui_GitHubManagerLogin(object):
     def setupUi(self, GitHubManagerLogin):
@@ -148,7 +148,7 @@ class Ui_GitHubManagerLogin(object):
         self.tokenLineEdit.setPlaceholderText(QCoreApplication.translate("GitHubManagerLogin", u"ghp_W5FU93CFrM5y5a56fsaFFFV1EYaIf", None))
         self.switchVisibilityButton.setText("")
         self.signInButton.setText(QCoreApplication.translate("GitHubManagerLogin", u"Sign in", None))
-        self.githubAccesTokenButton.setText(QCoreApplication.translate("GitHubManagerLogin", u"Generate Access Token", None))
+        self.githubAccesTokenButton.setText(QCoreApplication.translate("GitHubManagerLogin", u"Login with GitHub", None))
         self.menuMenu.setTitle(QCoreApplication.translate("GitHubManagerLogin", u"Menu", None))
         self.menuHelp.setTitle(QCoreApplication.translate("GitHubManagerLogin", u"Help", None))
     # retranslateUi

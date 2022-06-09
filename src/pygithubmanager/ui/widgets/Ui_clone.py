@@ -8,14 +8,18 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QMetaObject)
-from PySide6.QtGui import (QFont)
-from PySide6.QtWidgets import (QHBoxLayout, QLabel, QLineEdit,
-                               QPushButton, QSizePolicy, QTabWidget, QVBoxLayout,
-                               QWidget)
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QLineEdit,
+    QPushButton, QSizePolicy, QTabWidget, QVBoxLayout,
+    QWidget)
 
-from widgets.IconLabel import IconLabel
-
+from pygithubmanager.widgets.IconLabel import IconLabel
 
 class Ui_Clone(object):
     def setupUi(self, Clone):
@@ -99,6 +103,7 @@ class Ui_Clone(object):
 
         self.horizontalLayout_4.addWidget(self.selectDirectoryButton)
 
+
         self.verticalLayout_2.addLayout(self.horizontalLayout_4)
 
         self.cloneButton = QPushButton(self.cloneTab)
@@ -112,7 +117,9 @@ class Ui_Clone(object):
 
         self.horizontalLayout.addWidget(self.tabWidget)
 
+
         self.verticalLayout.addLayout(self.horizontalLayout)
+
 
         self.retranslateUi(Clone)
 
@@ -123,21 +130,21 @@ class Ui_Clone(object):
     # setupUi
 
     def retranslateUi(self, Clone):
-        Clone.setWindowTitle(QCoreApplication.translate("Clone", u"Form", None))
+        Clone.setWindowTitle(QCoreApplication.translate("Clone", u"Clone", None))
         self.httpsCopyButton.setText("")
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.https),
-                                  QCoreApplication.translate("Clone", u"HTTPS", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.https), QCoreApplication.translate("Clone", u"HTTPS", None))
         self.sshCopyButton.setText("")
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.ssh), QCoreApplication.translate("Clone", u"SSH", None))
         self.savePathLabel.setText(QCoreApplication.translate("Clone", u"Save path:", None))
-        # if QT_CONFIG(tooltip)
-        self.repoSavePathLineEdit.setToolTip(QCoreApplication.translate("Clone",
-                                                                        u"<html><head/><body><p>Path where the repository will be saved.</p><p>Ex: C:\\Users\\User</p><p>Cloning automatically creates a folder with the name of the repository.</p></body></html>",
-                                                                        None))
-        # endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(tooltip)
+        self.repoSavePathLineEdit.setToolTip(QCoreApplication.translate("Clone", u"<html><head/><body><p>Path where\n"
+"                                                            the repository will be saved.</p><p>Ex:\n"
+"                                                            C:\\Users\\User</p><p>Cloning automatically\n"
+"                                                            creates a folder with the name of the repository.</p></body></html>\n"
+"                                                        ", None))
+#endif // QT_CONFIG(tooltip)
         self.selectDirectoryButton.setText(QCoreApplication.translate("Clone", u"Select directory", None))
         self.cloneButton.setText(QCoreApplication.translate("Clone", u"Clone", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.cloneTab),
-                                  QCoreApplication.translate("Clone", u"CLONE", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.cloneTab), QCoreApplication.translate("Clone", u"CLONE", None))
     # retranslateUi
 

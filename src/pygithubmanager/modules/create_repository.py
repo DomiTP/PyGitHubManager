@@ -1,9 +1,9 @@
 from PySide6.QtWidgets import QWidget
 from github import GithubException
 
-from modules.repository import Repository
-from ui.widgets import Ui_CreateRepo
-from utils import message
+from pygithubmanager.modules.repository import Repository
+from pygithubmanager.ui.widgets import Ui_CreateRepo
+from pygithubmanager.utils import message
 
 
 class CreateRepository(QWidget):

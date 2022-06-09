@@ -8,9 +8,9 @@ from PySide6.QtGui import QDesktopServices
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QFileSystemModel
 from github.Repository import Repository
 
-from ui.widgets import Ui_localRepository
-from utils import get_repo_info, time_formatter, delete_repository_dialog, message
-from widgets import MplCanvas
+from pygithubmanager.ui.widgets import Ui_localRepository
+from pygithubmanager.utils import get_repo_info, time_formatter, delete_repository_dialog, message
+from pygithubmanager.widgets import MplCanvas
 
 
 class LocalRepository(QWidget):

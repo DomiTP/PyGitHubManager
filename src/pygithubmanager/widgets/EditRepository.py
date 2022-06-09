@@ -1,8 +1,8 @@
 from PySide6.QtWidgets import QWidget
 from github import GithubException
 
-from ui.widgets import Ui_RepositoryEdit
-from utils import delete_repository_dialog, message
+from pygithubmanager.ui.widgets import Ui_RepositoryEdit
+from pygithubmanager.utils import delete_repository_dialog, message
 
 
 class EditRepository(QWidget):

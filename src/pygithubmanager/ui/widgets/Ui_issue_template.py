@@ -12,7 +12,7 @@ from PySide6.QtCore import (QCoreApplication, QMetaObject)
 from PySide6.QtWidgets import (QHBoxLayout, QLabel, QSizePolicy,
                                QSpacerItem, QVBoxLayout)
 
-from widgets.IconLabel import IconLabel
+from pygithubmanager.widgets.IconLabel import IconLabel
 
 
 class Ui_IssueTemplate(object):
