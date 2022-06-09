@@ -15,9 +15,9 @@ $ pip install pygithubmanager
 ## Usage
 
 ```python
-from pygithubmanager import GitHubManager
+import pygithubmanager
 
-GitHubManager()
+pygithubmanager.start()
 ```
 
 ## Contributing
