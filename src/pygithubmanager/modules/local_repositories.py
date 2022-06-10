@@ -132,6 +132,7 @@ class LocalRepositories(QWidget):
         self.ui.searchButton.clicked.connect(self.thread_load_items)
         self.ui.lineEdit_2.setText(str(USER_HOME_PATH))
         self.ui.lineEdit.textChanged.connect(self.on_text_changed)
+        self.ui.listWidget.setAlternatingRowColors(True)
         self.ui.loadingButton.setIcon(qta.icon('ri.loader-4-line', animation=qta.Pulse(self.ui.loadingButton)))
         self.ui.loadingButton.setToolTip("Searching repositories...")
         self.ui.loadingButton.hide()

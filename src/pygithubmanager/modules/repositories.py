@@ -103,6 +103,7 @@ class Repositories(QWidget):
         self.ui.newButton.clicked.connect(self.create_repository)
         self.ui.newButton.setToolTip("Create a new repository")
         self.ui.lineEdit.textChanged.connect(self.on_text_changed)
+        self.ui.listWidget.setAlternatingRowColors(True)
 
     def create_repository(self):
         """
