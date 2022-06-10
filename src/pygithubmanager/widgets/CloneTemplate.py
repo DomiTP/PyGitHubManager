@@ -72,6 +72,7 @@ class CloneTemplate(QWidget):
         """
         res = clone(self.repo.clone_url, self.ui.repoSavePathLineEdit.text(), self.user)
         self.res_dialog(res[0], res[1])
+        self.close()
 
     def res_dialog(self, res, message):
         """
