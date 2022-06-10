@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v1.0.1 (2022-06-10)
+### Fix
+* Fixed about ([`5d94ab0`](https://github.com/DomiTP/PyGitHubManager/commit/5d94ab09f97e6e18bd59554f9ef181b45dc1680a))
+* Clone window closes when finished ([`ecbf911`](https://github.com/DomiTP/PyGitHubManager/commit/ecbf91173b1d4c0ab73f8cc671924c2f7aa66970))
+
 ## v1.0.0 (2022-06-09)
 ### Fix
 * Changed strings to lowercase ([`8293a24`](https://github.com/DomiTP/PyGitHubManager/commit/8293a243589405699abf735326aa7cde426ea510))
